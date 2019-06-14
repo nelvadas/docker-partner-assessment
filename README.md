@@ -1,4 +1,4 @@
-# Docker Partner Assesment
+# Docker Partner Assessment
 ## A series of exercises used to evaluate Docker partner readiness.
 The following exercises will test your knowledge regarding application containerization.
 
