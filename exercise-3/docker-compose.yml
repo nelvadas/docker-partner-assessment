@@ -1,0 +1,37 @@
+version: '3.3'
+
+services:
+  ra-site:
+    image: ra-site
+    networks:  
+      - app_net
+    ports:
+      - "4200:80"
+    deploy:
+      replicas: 1
+    configs:
+      - source: apiUrl.json
+        target: /usr/share/nginx/html/assets/apiUrl.json
+
+  ra-api:
+    image: ra-api
+    networks:  
+      - app_net
+    ports:
+      - "4300:80"
+    secrets:  
+      - db_connect
+    deploy:
+      replicas: 1
+
+networks:
+  app_net:
+    driver:   overlay
+
+secrets:
+  db_connect:
+    file: ./ra-api/sql_connect.txt
+
+configs:
+  apiUrl.json:
+    file: ./ra-site/apiUrl.json
