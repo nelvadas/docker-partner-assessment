@@ -1,6 +1,4 @@
-# Exercise 3
-## **Fix the full-stack**
+# Exercise 1
+## **A simple web API**
 
-This exercise tasks you with a troubleshooting scenario that represents a common set of issues.  Find and fix the problems so that the web site displays data queried from the database.
-
-There are Docker files and Compose files in the project folders but keep in mind that the errors can be anywhere!
+In this exercise you will create a Docker image for a simple Dotnet Core web API application.  It is not necessary to be fluent in Dotnet Core to complete this exercise.  Determine the correct base image to use and create a Docker file & Compose file to test the service in the swarm.
