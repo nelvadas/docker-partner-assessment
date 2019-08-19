@@ -10,11 +10,21 @@ namespace exercise_2.Classes
 {
     public static class Api
     {
+        static string backendUrlValue;
+        static string backEndUrlName="EX1_URL";
+
+        static Api(){
+            backendUrlValue= Environment.GetEnvironmentVariable(backEndUrlName);
+            Console.WriteLine("Using Back end Url {0}={1}",backEndUrlName,backendUrlValue);
+        }
         public static List<string> Get(string endpoint)
         {
+            
+            
+            
             using (HttpClient client = new HttpClient())
             {
-                    client.BaseAddress = new Uri ("http://localhost:5000");
+                    client.BaseAddress = new Uri (backendUrlValue);
                     
                     MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json");
                     

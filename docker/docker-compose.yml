@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  frontend:
+    build: ../exercise-2
+    ports:
+    - "4000:80"
+    environment:
+    - EX1_URL=http://api
+    links:
+    - api
+    networks: 
+      - frontend_ovl
+      - backend_ovl
+  api:
+    build: ../exercise-1
+    networks:
+      - backend_ovl
+networks: 
+  frontend_ovl:
+    driver: overlay 
+  backend_ovl:  
+    driver: overlay 
+
