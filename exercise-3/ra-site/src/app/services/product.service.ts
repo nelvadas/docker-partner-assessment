@@ -17,6 +17,7 @@ export class ProductService {
   }  
 
   getProducts(): Observable<Product[]> {
+    console.info("Calling the product service with ",this.serviceUrl)
     return this.http.get<Product[]>(this.serviceUrl+`/product`)
     .pipe(
       catchError(this.handleError('getProducts', []))

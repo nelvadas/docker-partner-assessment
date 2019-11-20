@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace ra_api.Models
+namespace Models
 {
     public partial class RaDbContext : DbContext
     {
@@ -25,10 +25,10 @@ namespace ra_api.Models
             {
                 // Use this connections string when scaffolding with "dotnet aspnet-codegenerator" or testing api outside of Docker
                 // string connString = System.IO.File.ReadAllText("./sql_connect.txt");
-
+                
                 // Read connection string from Docker Secret "db_connect"
                 string connString = System.IO.File.ReadAllText("../run/secrets/db_connect");
-                
+                Console.WriteLine("Connection String {0}",connString);
                 optionsBuilder.UseSqlServer(@connString);
             }
         }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ra_api.Models;
+using Models;
 
 namespace ra_api.Controllers
 {
@@ -24,6 +24,7 @@ namespace ra_api.Controllers
         public IActionResult Index()
         {
             var raDbContext = _context.Product;
+            Console.WriteLine( "New call call to get products...");
             return new JsonResult(raDbContext.ToList());
         }
 

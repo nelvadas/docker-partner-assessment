@@ -7,7 +7,12 @@ This site uses the API created in **exercise 1** to load a set of values and dis
 
 Use an overlay network to leverage the Docker internal DNS so the data traffic from the API does not need to leave the swarm to be consumed by the site.
 
-Update API File to rely on Environment variable 
+Update `Api.cs` File to rely on Environment variable 
+
+Build the exercise2 with the following command 
+```
+docker build -t exercice-2:1.0 .
+```
 
 ```
 docker run -it -p 5000:80 --name cnt1 exercice-1:1.0

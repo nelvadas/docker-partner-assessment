@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ra_api.Models
+namespace Models
 {
     public partial class Product
     {

@@ -10,6 +10,7 @@ export class ConfigService {
     constructor(private http: HttpClient){}
 
     load(): Promise<any>{
+        console.info("************ Loading teh json file ")
         return this.http.get('assets/apiUrl.json')
               .toPromise()
               .then(data => {

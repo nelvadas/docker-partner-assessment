@@ -1,8 +1,12 @@
-version: '3.3'
+version: '3.7'
 
 services:
+  ra-debuguer:
+    image: ra-debugguer:1.0
+    networks: 
+      - app_net
   ra-site:
-    image: ra-site
+    image: ra-site:1.6.0
     networks:  
       - app_net
     ports:
@@ -10,11 +14,10 @@ services:
     deploy:
       replicas: 1
     configs:
-      - source: apiUrl.json
+      - source: apiUrljson
         target: /usr/share/nginx/html/assets/apiUrl.json
-
   ra-api:
-    image: ra-api
+    image: ra-api:1.2
     networks:  
       - app_net
     ports:
@@ -33,5 +36,5 @@ secrets:
     file: ./ra-api/sql_connect.txt
 
 configs:
-  apiUrl.json:
+  apiUrljson:
     file: ./ra-site/apiUrl.json
